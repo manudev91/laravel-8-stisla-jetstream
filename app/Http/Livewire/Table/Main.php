@@ -51,6 +51,25 @@ class Main extends Component
                     ])
                 ];
                 break;
+            case 'post':
+                $posts = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.post',
+                    "posts" => $posts,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => '',
+                            'model' => 'wire:click="create()"',
+                            'create_new_text' => 'New Post',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;    
 
             default:
                 # code...

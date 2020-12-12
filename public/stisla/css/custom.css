@@ -5,4 +5,9 @@
  * 
  */
 
+
 /*# sourceMappingURL=custom.css.map */
+
+.modal-cls {
+    z-index: 99999;
+}
